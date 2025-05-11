@@ -108,22 +108,27 @@ export default function Page() {
   const router = useRouter();
   
   return (
-    <div className="max-h-screen flex flex-col items-center justify-center text-center bg-white">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="w-full max-h-[500px] overflow-hidden">
-          <Image
-            src="/bg.jpg"
-            alt="Clipboard icon"
-            width={1920}  
-            height={500}
-            className="w-full h-auto max-h-[500px] object-cover"
-          />
-        </div>  
-        <h1 className="text-3xl font-bold mt-8">Welcome to To-Do-List!</h1>
-        <p className="text-lg mt-2">A to-do-list will make organizing life much much simpler</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-6 py-12 text-center">
+      <main className="flex flex-col items-center gap-8 max-w-2xl">
+        <Image
+          src="/clipboard.png"
+          alt="Clipboard icon"
+          width={500}
+          height={500}
+          className="w-48 h-48 object-contain"
+        />
+
+        <h1 className="text-5xl font-extrabold text-gray-900">
+          Welcome to To-Do List
+        </h1>
+  
+        <p className="text-lg text-gray-600">
+        Organize your tasks, track your progress, and stay focused — all in one place. Start planning smarter with your personal To-Do List.
+        </p>
+
         <button
           onClick={() => router.push('/todos')}
-          className="mt-6 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+          className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-200"
         >
           GET STARTED
         </button>
