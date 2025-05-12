@@ -1,6 +1,8 @@
 "use client";
+import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type Todo = {
   id: number;
@@ -12,6 +14,7 @@ export default function Page() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<"all" | "completed" | "not_completed">("all");
   const [search, setSearch] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -35,6 +38,15 @@ export default function Page() {
   return (
     <div className="flex flex-col items-center justify-center bg-white px-4 py-8">
       <main className="w-full max-w-2xl">
+        {/* Back button */}
+        <button
+          onClick={() => router.back()}
+          className="absolute top-4 left-4 flex items-center gap-1 text-md font-bold text-blue-600 hover:underline transition duration-200"
+        >
+          <ChevronLeftIcon className="w-7 h-7" />
+          Back
+        </button>
+        
         <h1 className="text-3xl font-bold mt-8 mb-4 flex items-center gap-2">
           <img src="/clipboard.png" alt="Icon" className="w-8 h-8" />
           To-Do-List
