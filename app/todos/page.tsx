@@ -17,14 +17,15 @@ export default function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    const fetchTodos = async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/todos");
-      const todos = await res.json();
-      setTodos(todos);
-      console.log(todos);
-    };
     fetchTodos();
   }, []);
+
+  const fetchTodos = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await res.json();
+    setTodos(data);
+    console.log(data);
+  };
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "completed") return todo.completed;
