@@ -27,13 +27,15 @@ export default function Page() {
     console.log(data);
   };
 
-  const filteredTodos = todos.filter((todo) => {
-    if (filter === "completed") return todo.completed;
-    if (filter === "not_completed") return !todo.completed;
-    return true;
-  }).filter((todo) => {
-    if (search === "") return true;
-    return todo.title.toLowerCase().includes(search.toLowerCase());
+  const filteredTodos = todos.filter(
+    (todo) => {
+      if (filter === "completed") return todo.completed;
+      if (filter === "not_completed") return !todo.completed;
+      return true;
+  }).filter(
+    (todo) => {
+      if (search === "") return true;
+      return todo.title.toLowerCase().includes(search.toLowerCase());
   });
   
   return (
